@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("efcore-data-importer-YanniAlshoufiHTL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4620534dc7893ba331206cd25b9bd0793177d1b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4360b66be0999e8a94213fcab1eddcc5a2820402")]
 [assembly: System.Reflection.AssemblyProductAttribute("efcore-data-importer-YanniAlshoufiHTL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("efcore-data-importer-YanniAlshoufiHTL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
