@@ -1,3 +1,5 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/7w5f84Lm)
+
 # Data Importer
 
 ## Description
@@ -10,60 +12,60 @@ In this exercise, you have to write an importer for a simple data format.
 2. Add the necessary NuGet packages for Entity Framework Core (with SQLite support).
 3. Add the following data model classes:
 
-    ```csharp
-    public class Customer(int id, string companyName, string countryIsoCode, string region)
-    {
-        Customer() : this(0, "", "", "") { }
+   ```csharp
+   public class Customer(int id, string companyName, string countryIsoCode, string region)
+   {
+       Customer() : this(0, "", "", "") { }
 
-        public int ID { get; set; } = id;
-        public string CompanyName { get; set; } = companyName;
-        public string CountryIsoCode { get; set; } = countryIsoCode;
-        public string Region { get; set; } = region;
-        public List<OrderHeader> Orders { get; set; } = [];
-        public int? ParentCustomerID { get; set; } = null;
-        public Customer? ParentCustomer { get; set; } = null;
-    }
+       public int ID { get; set; } = id;
+       public string CompanyName { get; set; } = companyName;
+       public string CountryIsoCode { get; set; } = countryIsoCode;
+       public string Region { get; set; } = region;
+       public List<OrderHeader> Orders { get; set; } = [];
+       public int? ParentCustomerID { get; set; } = null;
+       public Customer? ParentCustomer { get; set; } = null;
+   }
 
-    public class OrderHeader(int id, int customerID, Customer customer, DateOnly orderDate, string deliveryCountryIsoCode, string incoterm, string paymentTerms)
-    {
-        OrderHeader() : this(0, 0, null!, new(), "", "", "") { }
+   public class OrderHeader(int id, int customerID, Customer customer, DateOnly orderDate, string deliveryCountryIsoCode, string incoterm, string paymentTerms)
+   {
+       OrderHeader() : this(0, 0, null!, new(), "", "", "") { }
 
-        public int ID { get; set; } = id;
-        public int CustomerID { get; set; } = customerID;
-        public Customer Customer { get; set; } = customer;
-        public DateOnly OrderDate { get; set; } = orderDate;
-        public string DeliveryCountryIsoCode { get; set; } = deliveryCountryIsoCode;
-        public string Incoterm { get; set; } = incoterm;
-        public string PaymentTerms { get; set; } = paymentTerms;
-        public List<OrderLine> OrderLines { get; set; } = [];
-    }
+       public int ID { get; set; } = id;
+       public int CustomerID { get; set; } = customerID;
+       public Customer Customer { get; set; } = customer;
+       public DateOnly OrderDate { get; set; } = orderDate;
+       public string DeliveryCountryIsoCode { get; set; } = deliveryCountryIsoCode;
+       public string Incoterm { get; set; } = incoterm;
+       public string PaymentTerms { get; set; } = paymentTerms;
+       public List<OrderLine> OrderLines { get; set; } = [];
+   }
 
-    public class OrderLine(int id, int orderID, OrderHeader order, string productCode, int quantity, decimal unitPrice)
-    {
-        OrderLine() : this(0, 0, null!, "", 0, 0) { }
+   public class OrderLine(int id, int orderID, OrderHeader order, string productCode, int quantity, decimal unitPrice)
+   {
+       OrderLine() : this(0, 0, null!, "", 0, 0) { }
 
-        public int ID { get; set; } = id;
-        public int OrderID { get; set; } = orderID;
-        public OrderHeader Order { get; set; } = order;
-        public string ProductCode { get; set; } = productCode;
-        public int Quantity { get; set; } = quantity;
-        public decimal UnitPrice { get; set; } = unitPrice;
-    }
-    ```
+       public int ID { get; set; } = id;
+       public int OrderID { get; set; } = orderID;
+       public OrderHeader Order { get; set; } = order;
+       public string ProductCode { get; set; } = productCode;
+       public int Quantity { get; set; } = quantity;
+       public decimal UnitPrice { get; set; } = unitPrice;
+   }
+   ```
 
 4. Add a `DbContext` class with the tables `Customers`, `OrderHeaders`, and `OrderLines`. Make sure to add the following code to the data context. It ensures that `CountryIsoCode` has a length of two.
 
-    ```cs
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<OrderLine>()
-            .Property(ol => ol.UnitPrice)
-            .HasConversion<double>();
+   ```cs
+   protected override void OnModelCreating(ModelBuilder modelBuilder)
+   {
+       modelBuilder.Entity<OrderLine>()
+           .Property(ol => ol.UnitPrice)
+           .HasConversion<double>();
 
-        modelBuilder.Entity<Customer>()
-            .ToTable(c => c.HasCheckConstraint("CK_CountryIsoCode", "length(CountryIsoCode) = 2"));
-    }
-    ``` 
+       modelBuilder.Entity<Customer>()
+           .ToTable(c => c.HasCheckConstraint("CK_CountryIsoCode", "length(CountryIsoCode) = 2"));
+   }
+   ```
 
 5. Add an `IDesignTimeDbContextFactory` implementation for the `DbContext` class.
 6. Setup the database connection in the `appsettings.json` file.

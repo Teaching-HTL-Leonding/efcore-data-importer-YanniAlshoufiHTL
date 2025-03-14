@@ -1,0 +1,81 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/yanni/Schule/Jahre/2425/Faecher/PROG/SUE/014_DataImporter/efcore-data-importer-YanniAlshoufiHTL/efcore-data-importer-YanniAlshoufiHTL.csproj": {}
+  },
+  "projects": {
+    "/home/yanni/Schule/Jahre/2425/Faecher/PROG/SUE/014_DataImporter/efcore-data-importer-YanniAlshoufiHTL/efcore-data-importer-YanniAlshoufiHTL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/yanni/Schule/Jahre/2425/Faecher/PROG/SUE/014_DataImporter/efcore-data-importer-YanniAlshoufiHTL/efcore-data-importer-YanniAlshoufiHTL.csproj",
+        "projectName": "efcore-data-importer-YanniAlshoufiHTL",
+        "projectPath": "/home/yanni/Schule/Jahre/2425/Faecher/PROG/SUE/014_DataImporter/efcore-data-importer-YanniAlshoufiHTL/efcore-data-importer-YanniAlshoufiHTL.csproj",
+        "packagesPath": "/home/yanni/.nuget/packages/",
+        "outputPath": "/home/yanni/Schule/Jahre/2425/Faecher/PROG/SUE/014_DataImporter/efcore-data-importer-YanniAlshoufiHTL/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/yanni/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[10.0.0-preview.1.25080.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/yanni/.dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
